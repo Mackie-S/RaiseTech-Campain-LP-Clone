@@ -1,0 +1,29 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.p-introduction{
+  position: relative;
+  margin-top: 370px;
+  @include breakpoint(tablet){
+    margin-top: unset;
+  }
+  @include breakpoint(pc){
+    background-image: url(../images/background-pattern_upper-right.svg), url(../images/background-pattern_upper-right-rev.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: right top, right -10px top 138px;
+  }
+  @include breakpoint (wide){
+    background-size: 1284px;
+  }
+  .c-triangle{
+    top: 420px;
+    left: 40px;
+    @include breakpoint(tablet){
+      top: 510px;
+      left: 10px;
+    }
+    @include breakpoint(pc){
+      top: 703px;
+    }
+  }
+}

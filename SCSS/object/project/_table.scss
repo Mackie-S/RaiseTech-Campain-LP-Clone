@@ -1,0 +1,108 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.p-table-wrap {
+  //横スクロールのための囲いなので独立させて上に記述
+  overflow: auto;
+  margin: 0 20px;
+}
+.p-table {
+  box-shadow: 0 0 20px rgba(#000000, 0.16);
+  margin: 0 auto;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  width: 750px;
+  @include breakpoint(tablet) {
+    width: 1056px;
+  }
+  &::before {
+    //RaiseTechのcolumn部分のbox-shadow用
+    content: "";
+    position: absolute;
+    left: 133px;
+    height: 100%;
+    width: 205px;
+    box-shadow: 0 0 20px rgba(#000000, 0.16);
+    @include breakpoint(tablet) {
+      left: 186px;
+      width: 290px;
+    }
+  }
+  tr:nth-of-type(odd) {
+    background-color: #f2f4f6;
+  }
+  tr:nth-of-type(even) {
+    background-color: white;
+  }
+  &__item {
+    font: bold 12px/1.8 $noto-font;
+    width: 132px;
+    vertical-align: middle;
+    padding: 14px 0 14px 14px;
+    @include breakpoint(tablet) {
+      font-size: 16px;
+      width: 186px;
+    }
+  }
+  &__RaiseTech {
+    background-color: $light-blue;
+    text-align: center;
+    vertical-align: middle;
+    width: 205px;
+    padding: 18px 33px;
+    @include breakpoint(tablet) {
+      width: 290px;
+    }
+    img {
+      object-fit: contain;
+      width: 139px;
+      @include breakpoint(tablet) {
+        width: 197px;
+      }
+    }
+  }
+  &__header {
+    text-align: center;
+    vertical-align: middle;
+    font: bold 22px $noto-font;
+    width: 205px;
+    @include breakpoint(tablet) {
+      font: bold 32px $noto-font;
+      padding: 20px 47px;
+      width: 290px;
+    }
+  }
+  &__price {
+    font: bold 22px/1.5 $roboto-font;
+    padding: 14px 0 14px 14px;
+    @include breakpoint(tablet) {
+      font-size: 32px;
+    }
+    span {
+      position: absolute;
+      font: bold 11px $noto-font;
+      margin: 7px;
+      transform: translateY(10%);
+      @include breakpoint(tablet) {
+        font-size: 16px;
+        transform: translateY(23%);
+      }
+    }
+  }
+  &__normal {
+    //通常の箇所
+    font: 12px/1.5 $noto-font;
+    vertical-align: middle;
+    padding: 14px 0 14px 14px;
+    @include breakpoint (tablet) {
+      font-size: 16px;
+      padding: 20px 0 20px 20px;
+    }
+    img{
+      width: 47px;
+      @include breakpoint(tablet){
+        width: 67px;
+      }
+    }
+  }
+}

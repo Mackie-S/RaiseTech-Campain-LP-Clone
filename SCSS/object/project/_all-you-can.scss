@@ -1,0 +1,123 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.p-all-you-can {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -405px;
+  padding: 45px 0 41px;
+  width: 90%;
+  max-width: 355px;
+  gap: 28px;
+  @include breakpoint(tablet) {
+    justify-content: center;
+    bottom: -300px;
+    max-width: 690px;
+    padding: 32px 0 40px;
+    width: 100%;
+    gap: 20px;
+  }
+  @include breakpoint(pc) {
+    bottom: -300px;
+    max-width: 1060px;
+    padding: 42px 90px 60px;
+    gap: 10px;
+  }
+  &__title {
+    text-align: center;
+    font: bold 20px $noto-font;
+    color: white;
+    position: relative;
+    @include breakpoint(pc) {
+      font-size: 32px;
+    }
+    &::before {
+      content: "";
+      background-color: white;
+      width: 2px;
+      height: 29px;
+      border-radius: 10px;
+      transform: rotate(-30deg) translate(-70px,4px);
+      position: absolute;
+      @include breakpoint(tablet) {
+        transform: rotate(-30deg) translate(-24px, -1px);
+      }
+      @include breakpoint(pc) {
+        height: 30px;
+        transform: rotate(-30deg) translate(-33px,17px);
+      }
+    }
+    &::after {
+      content: "";
+      background-color: white;
+      width: 2px;
+      height: 29px;
+      border-radius: 10px;
+      transform: rotate(30deg) translate(22px,-1px);
+      position: absolute;
+      @include breakpoint(tablet) {
+        transform: rotate(30deg) translate(24px,-1px);
+      }
+      @include breakpoint(pc) {
+        transform: rotate(30deg) translate(33px,17px);
+        height: 30px;
+      }
+    }
+    span {
+      font: bold 30px $noto-font;
+      @include breakpoint(pc) {
+        font-size: 48px;
+      }
+    }
+  }
+  &__main{
+    margin: auto;
+  }
+  &__combination {
+    font: bold 18px $noto-font;
+    color: white;
+    margin-bottom: 25px;
+    text-align: center;
+    @include breakpoint(tablet){
+      font-size: 16px;
+      margin-bottom: 9px;
+      text-align: unset;
+    }
+    @include breakpoint(pc) {
+      margin-left: 12px;
+    }
+  }
+  &__course {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    @include breakpoint(tablet) {
+      flex-direction: row;
+      gap: 30px;
+    }
+    @include breakpoint(tablet) {
+      gap: 40px;
+    }
+    &__title {
+      font: bold 18px $noto-font;
+      color: $accent-color;
+      background-color: white;
+      padding: 4px 40px;
+      @include breakpoint(tablet) {
+      }
+      @include breakpoint(pc) {
+        font-size: 24px;
+      }
+    }
+    &__contents {
+      color: white;
+      font: bold 14px $noto-font;
+      @include breakpoint(pc){
+        font-size: 16px;
+      }
+    }
+  }
+}

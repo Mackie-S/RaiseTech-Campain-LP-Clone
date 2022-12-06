@@ -1,0 +1,276 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.p-course {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px 0;
+  position: relative;
+  @include breakpoint(tablet) {
+    padding-top: 80px;
+  }
+  @include breakpoint(pc) {
+    padding-top: 100px;
+  }
+  &__title {
+    font: bold 24px $noto-font;
+    margin-bottom: 40px;
+    padding-top: 75px;
+    margin-top: -75px;
+    @include breakpoint(tablet) {
+      font-size: 32px;
+      margin-bottom: 60px;
+      padding-top: 120px;
+      margin-top: -120px;
+    }
+    @include breakpoint(pc) {
+      font-size: 48px;
+      margin-bottom: 80px;
+    }
+    span {
+      color: $accent-color;
+      font-weight: bold;
+      &:first-child {
+        font: bold 48px $roboto-font;
+        @include breakpoint(tablet) {
+          font-size: 56px;
+        }
+        @include breakpoint(pc) {
+          font-size: 72px;
+        }
+      }
+    }
+  }
+  &__supplement {
+    //titleの補足という意味合いで
+    text-align: center;
+    font: 14px/1.8 $noto-font;
+    margin-bottom: 30px;
+    @include breakpoint(tablet) {
+      font-size: 16px;
+      margin-bottom: 60px;
+    }
+  }
+  &__category {
+    position: relative;
+    margin-bottom: 65px;
+    max-width: 100%;
+    @include breakpoint(tablet) {
+      margin-bottom: 130px;
+    }
+    @include breakpoint(pc) {
+      margin-bottom: 230px;
+    }
+    &__title {
+      font: bold 20px $noto-font;
+      color: $accent-color;
+      margin-bottom: 30px;
+      position: relative;
+      padding-left: 62px;
+      @include breakpoint(tablet) {
+        font-size: 24px;
+        margin-bottom: 40px;
+        padding-left: 62px;
+      }
+      @include breakpoint(pc) {
+        font-size: 32px;
+        margin-bottom: 40px;
+        padding-left: 62px;
+      }
+      &::before {
+        content: "";
+        background-image: url(../images/triangle_arrow.svg);
+        width: 52px;
+        height: 31px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include breakpoint(tablet) {
+          top: 10px;
+        }
+      }
+    }
+  }
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include breakpoint(tablet) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 40px;
+    }
+  }
+  &__card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.3s; //hoverにも影響が出そうなので値は要検討
+    background-color: white;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 28px 35px;
+    @include breakpoint(tablet) {
+      width: 335px;
+      gap: 20px;
+    }
+    @include breakpoint(pc) {
+      width: 510px;
+      gap: 35px;
+      padding: 43px 63px;
+    }
+    &:hover {
+      background-color: $light-blue;
+      box-shadow: unset;
+    }
+    &__title {
+      font: bold 18px $noto-font;
+      @include breakpoint(pc) {
+        font-size: 24px;
+      }
+    }
+    img {
+      max-width: 112px;
+      @include breakpoint(tablet){
+        width: 46%;
+      }
+      @include breakpoint(pc) {
+        width: unset;
+        max-width: 170px;
+      }
+    }
+    &--m {
+      //modal版の記述
+      background-color: white;
+      display: flex;
+      border-radius: 10px;
+      flex-direction: column;
+      padding: 40px 20px;
+      @include breakpoint(tablet) {
+        flex-direction: row;
+        gap: 40px;
+      }
+      @include breakpoint(pc) {
+        padding: 67px 55px;
+        gap: 40px;
+      }
+      img {
+        margin: auto;
+        width: 113px;
+        @include breakpoint(tablet) {
+          margin: unset;
+          width: unset;
+        }
+      }
+      &__right {
+        display: flex;
+        flex-direction: column;
+      }
+      &__title {
+        font: bold 24px $noto-font;
+        margin-bottom: 30px;
+        text-align: center;
+        @include breakpoint(tablet) {
+          text-align: unset;
+        }
+        @include breakpoint(pc) {
+          font: bold 32px $noto-font;
+          margin-bottom: 20px;
+        }
+      }
+      &__subheading {
+        font: bold 18px/1.5 $noto-font;
+        margin-bottom: 20px;
+        @include breakpoint(pc) {
+          font-size: 24px;
+        }
+      }
+      &__para {
+        font: 14px/1.8 $noto-font;
+        margin-bottom: 20px;
+        @include breakpoint(pc) {
+          font-size: 16px;
+        }
+      }
+      &__price {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        @include breakpoint(tablet) {
+          gap: 20px;
+        }
+        &-l {
+          //leftの略（通常価格の部分）
+          background-image: url(../images/box-arrow_white.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          width: 109px;
+          height: 30px;
+          padding: 4px 0 0 22px;
+          font: bold 14px $noto-font;
+          @include breakpoint(pc) {
+            width: 145px;
+            height: 40px;
+            padding: 8px 0 0 33px;
+            font: bold 16px $noto-font;
+          }
+        }
+        &-r {
+          font: bold 14px $noto-font;
+          transform: translateY(-3px);
+          @include breakpoint(pc) {
+            font: bold 16px $noto-font;
+            transform: translateY(-3px);
+          }
+          span {
+            font: bold 24px $noto-font;
+            @include breakpoint(pc) {
+              font: bold 36px $noto-font;
+            }
+          }
+        }
+      }
+    }
+  }
+  .c-background--gradation-rev {
+    font-size: 0;
+    position: absolute;
+    left: 0;
+    top: 460px;
+    z-index: -1;
+    width: 84%;
+    height: 249px;
+    @include breakpoint(tablet) {
+      top: 460px;
+      width: 64%;
+      height: 200px;
+    }
+    @include breakpoint(pc) {
+      top: 576px;
+      height: 255px;
+    }
+  }
+  .c-background--gradation {
+    font-size: 0;
+    position: absolute;
+    right: 0;
+    top: 930px;
+    z-index: -1;
+    width: 84%;
+    height: 249px;
+    @include breakpoint(tablet) {
+      top: 835px;
+      width: 64%;
+      height: 200px;
+    }
+    @include breakpoint(pc) {
+      top: 1150px;
+      height: 255px;
+    }
+  }
+}

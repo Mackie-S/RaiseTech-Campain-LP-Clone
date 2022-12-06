@@ -1,0 +1,72 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+//ハンバーガーメニューの3本線それぞれに共通するプロパティ
+%hamburger-base{
+  position: absolute;
+  right: 0;
+  font-size: 0;
+  width: 25px;
+  height: 3px;
+  background-color: $accent-color;
+  margin-right: 20px;
+  @include breakpoint(pc) {
+    display: none;
+  }
+}
+.p-hamburger-menu{
+  position: absolute;
+  right: 0;
+  width: 60px;
+  height: 100%;
+  cursor: pointer;
+  @include breakpoint(pc) {
+    display: none
+  }
+  &__line{
+    @extend %hamburger-base;
+    top: 23px;
+    transition: all 0.2s;
+    @include breakpoint(tablet) {
+      top: 43px;
+    }
+    &::before{
+      content: "";
+      @extend %hamburger-base;
+      top: -10px;
+      right: -20px;
+      transition: all 0.2s;
+      @include breakpoint(tablet) {
+        top: -10px;
+      }
+    }
+    &::after{
+      content: "";
+      @extend %hamburger-base;
+      top: 10px;
+      right: -20px;
+      transition: all 0.2s;
+      @include breakpoint(tablet) {
+        top: 10px;
+      }
+    }
+  }
+}
+
+//ハンバーガーメニューが開かれている時の挙動
+.p-hamburger-menu[aria-expanded="true"]{
+  .p-hamburger-menu__line{
+    background-color: transparent;
+    &::before{
+      width: 30px;
+      top: 0;
+      transform: rotate(-45deg);
+      transition: all 0.2s;
+    }
+    &::after{
+      width: 30px;
+      top: 0;
+      transform: rotate(-135deg);
+      transition: all 0.2s;
+    }
+  }
+}

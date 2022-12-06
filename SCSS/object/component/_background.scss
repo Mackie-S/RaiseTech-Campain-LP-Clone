@@ -1,0 +1,35 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+
+.c-background{
+  &--light-blue{
+    background-color: $light-blue;
+    width: 100%;
+  }
+  &--gradation{ //ページ真ん中あたりの「想像してみてください。」等の背景
+    background:linear-gradient(to right,$accent-color,#0775c6);
+    &-rev{
+      background:linear-gradient(to left,$accent-color,#0775c6);
+    }
+  }
+  &--blue-and-pattern{
+    background-color: $accent-color;
+    background-image: url(../images/background-pattern_upper-left.svg),
+      url(../images/background-pattern_bottom-right.svg);
+    background-repeat: no-repeat;
+    background-position: left top, right bottom;
+    background-size: contain;
+    @include breakpoint(pc){
+      background-size: auto;
+    }
+  }
+  &--blend-mode-m{
+    background-blend-mode: multiply;
+  }
+  &--blend-mode-sl{
+    background-blend-mode: soft-light;
+  }
+  &--lg{ //light-gray
+    background-color: #fafafa;
+  }
+} 

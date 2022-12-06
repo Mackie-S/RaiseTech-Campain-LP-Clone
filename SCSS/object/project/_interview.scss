@@ -1,0 +1,69 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.p-interview{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  height: 420px;
+  position: relative;
+  @include breakpoint(tablet){
+    height: 335px;
+    padding-top: 80px;
+  }
+  @include breakpoint(pc){
+    height: 467px;
+    padding-top: 100px;
+  }
+  &__title{
+    font: bold 24px $noto-font;
+    padding-top: 75px;
+    margin-top: -75px;
+    @include breakpoint(tablet){
+      font-size: 32px;
+      padding-top: 120px;
+      margin-top: -120px;
+    }
+    @include breakpoint(pc){
+      font-size:  48px;
+      margin-bottom: 80px;
+    }
+  }
+  &__videos{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 90%;
+    max-width: 400px;
+    position: absolute;
+    bottom: -140px;
+    @include breakpoint(tablet){
+      justify-content: center;
+      flex-direction: row;
+      max-width: 690px;
+      height: 315px;
+      bottom: -120px;
+    }
+    @include breakpoint(pc){
+      gap: 40px;
+      max-width: 1060px;
+      bottom: -90px;
+    }
+    iframe{
+      width: 100%;
+      height: 206px;
+      @include breakpoint(tablet){
+        width: 270px;
+        max-width: 510px;
+        height: unset;
+      }
+      @include breakpoint(tab-pc){
+        width: 90%;
+      }
+      @include breakpoint(pc){
+        width: 510px;
+        max-width: unset;
+      }
+    }
+  }
+}
