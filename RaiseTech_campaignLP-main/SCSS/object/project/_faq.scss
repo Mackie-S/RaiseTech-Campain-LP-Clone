@@ -1,0 +1,112 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.p-faq {
+  background-color: $light-blue;
+  background-image: url(../images/background-pattern_upper-left.svg),
+    url(../images/background-pattern_bottom-right.svg);
+  background-position: top left, bottom right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 178px 0 60px 0;
+  @include breakpoint(tablet) {
+    padding: 260px 0 80px 0;
+  }
+  @include breakpoint(pc){
+    background-size: auto;
+  }
+  &__title {
+    font: bold 24px $noto-font;
+    margin-bottom: 45px;
+    padding-top: 75px;
+    margin-top: -75px;
+    @include breakpoint(tablet) {
+      font-size: 32px;
+      margin-bottom: 51px;
+      padding-top: 120px;
+      margin-top: -120px;
+    }
+    @include breakpoint(pc) {
+      font-size: 48px;
+      margin-bottom: 51px;
+    }
+  }
+  &__wrap{
+    width: 90%;
+    @include breakpoint(tablet){
+      width: 90%;
+      max-width: 690px;
+    }
+    @include breakpoint(pc){
+      max-width: 1060px;
+    }
+    // @include breakpoint(wide){
+    //   width: 55%;
+    // }
+  }
+  &__list{
+    margin-bottom: 20px;
+  }
+  &__q{
+    background-color: #fafafa;
+    padding: 20px 50px 20px 45px;
+    position: relative;
+    font: bold 14px/1.8 $noto-font;
+    cursor: pointer;
+    text-indent: -27px;
+    @include breakpoint(pc){
+      font-size: 16px;
+    }
+    &::before{
+      content: "";
+      position: absolute;
+      background-image: url(../images/icon_down-arrow.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 16px;
+      height: 8px;
+      top: 29px;
+      right: 30px;
+      @include breakpoint(tablet){
+        top: 32px;
+      }
+    }
+    &.active::before{
+      content: "";
+      position: absolute;
+      background-image: url(../images/icon_up-arrow.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 16px;
+      height: 8px;
+      top: 29px;
+      right: 30px;
+      @include breakpoint(tablet){
+        top: 32px;
+      }
+    }
+  }
+  &__a{
+    background-color: #F2F4F6;
+    padding: 20px 60px;
+    display: none;
+    font: 14px/1.8 $noto-font;
+    text-indent: -27px;
+    position: relative;
+    @include breakpoint(pc){
+      font-size: 16px;
+    }
+  }
+  span{
+    font: 500 18px $roboto-font;
+    color: $accent-color;
+    margin-right: 10px;
+    @include breakpoint(tablet){
+      font-size: 22px;
+    }
+  }
+}

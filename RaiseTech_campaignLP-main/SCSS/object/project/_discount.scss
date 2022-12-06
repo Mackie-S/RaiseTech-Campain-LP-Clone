@@ -1,0 +1,294 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.p-discount {
+  background: url(../images/background-pattern_upper-left.svg),
+    url(../images/background-pattern_bottom-right.svg),
+    linear-gradient(to right, $accent-color, #0775c6);
+  background-position: top left, bottom right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-blend-mode: multiply;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 67px 0 60px;
+  @include breakpoint(tablet) {
+    padding: 80px 0 ;
+  }
+  @include breakpoint(pc) {
+    padding: 114px 0 100px;
+  }
+  &__title {
+    color: white;
+    font: bold 24px $noto-font;
+    margin-bottom: 36px;
+    @include breakpoint(tablet) {
+      font-size: 32px;
+      margin-bottom: 60px;
+    }
+    @include breakpoint(pc) {
+      font-size: 48px;
+      margin-bottom: 84px;
+    }
+  }
+  &__price {
+    background-color: white;
+    position: relative;
+    height: 587px;
+    width: 90%;
+    gap: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include breakpoint(tablet) {
+      height: 360px;
+      gap: 50px;
+      width: 99%;
+      max-width: 700px;
+    }
+    @include breakpoint(pc) {
+      gap: 62px;
+      width: 90%;
+      max-width: 1060px;
+      padding: 32px 32px 42px;
+    }
+    &::before {
+      //中央の仕切り線
+      content: "";
+      position: absolute;
+      top: 59%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 84%;
+      height: 1px;
+      background-color: #c3c3c3;
+      display: inline-block;
+      @include breakpoint(tablet){
+        width: 89%;
+        top: 50%;
+      }
+    }
+  }
+  //受け放題のパート-----------------------
+  &__all-you-can {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    @include breakpoint(tablet) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 5%;
+    }
+    @include breakpoint(pc) {
+      gap: 35px;
+    }
+    &__sum {
+      order: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translateY(-8px); //文字の大きさがバラバラなのでこれで他要素と合わせる必要があった
+      h2 {
+        order: 2;
+        font: bold 24px $noto-font;
+        @include breakpoint(tablet) {
+          font-size: 32px;
+        }
+        @include breakpoint(pc) {
+          font-size: 48px;
+        }
+      }
+      p {
+        order: 1;
+        font: 18px $noto-font;
+        position: relative;
+        @include breakpoint(tablet){
+          width: 139px;
+        }
+        @include breakpoint(pc) {
+          width: unset;
+          font-size: 24px;
+        }
+        &::before {
+          content: "";
+          background-color: black;
+          width: 2px;
+          height: 20px;
+          border-radius: 10px;
+          transform: rotate(-30deg);
+          position: absolute;
+          top: 13px;
+          left: -15px;
+          z-index: 5;
+          @include breakpoint(tablet) {
+            height: 22px;
+            top: 10px;
+          }
+          @include breakpoint(pc) {
+            top: 24px;
+          }
+        }
+        &::after {
+          content: "";
+          background-color: black;
+          width: 2px;
+          height: 20px;
+          border-radius: 10px;
+          transform: rotate(30deg);
+          position: absolute;
+          top: 13px;
+          right: -15px;
+          @include breakpoint(tablet) {
+            height: 22px;
+            top: 10px;
+          }
+          @include breakpoint(pc) {
+            top: 24px;
+          }
+        }
+        span {
+          font: 24px $noto-font;
+          @include breakpoint(pc) {
+            font-size: 36px;
+          }
+        }
+      }
+    }
+    &__tf {
+      //tuition fee の略
+      order: 1;
+      background-image: url(../images/box-arrow_bottom.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: white;
+      font: bold 18px $noto-font;
+      padding: 12px 31px 19px;
+      width: 90%;
+      max-width: 255px;
+      @include breakpoint(tablet) {
+        background-image: url(../images/box-arrow.svg);
+        max-width: unset;
+        padding: 12px 40px 10px 16px;
+        width: 186px;
+      }
+      @include breakpoint(pc) {
+        background-size: cover;
+        font-size: 24px;
+        padding: 25px 33px 25px 16px;
+        width:320px;
+      }
+      span {
+        font: bold 32px $roboto-font;
+        @include breakpoint(pc){
+          font-size: 48px;
+        }
+      }
+    }
+    &__note {
+      //注釈の塊として
+      order: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 80%;
+      max-width: 255px;
+      @include breakpoint(tablet){
+        gap: 12px;
+        width: 160px;
+      }
+      @include breakpoint(pc) {
+        width: 232px;
+      }
+      h4 {
+        font: 300 18px $noto-font;
+        border: solid 1px #121212;
+        padding: 8px 63px;
+        @include breakpoint(tablet){
+          font-size: 16px;
+          padding: 6px 20px;
+        }
+        @include breakpoint(pc){
+          padding: 6px 31px;
+          font-size: 24px;
+        }
+      }
+      small{
+        font:12px/1.5 $noto-font;
+        line-height: 1.5;
+      }
+    }
+  }
+  //受け放題の終わりと学割の始まり-----------
+  &__student {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    @include breakpoint(tablet) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 11%;
+      transform: translateX(-2px);
+    }
+    @include breakpoint(pc) {
+      gap: 84px;
+      transform: translateX(-9px);
+    }
+    &__title {
+      order: 2;
+      font: bold 24px $noto-font;
+      @include breakpoint(tablet) {
+        font-size: 32px;
+      }
+      @include breakpoint(pc) {
+        font-size: 48px;
+      }
+    }
+    &__tf {
+      order: 1;
+      background-image: url(../images/box-arrow_bottom.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: white;
+      text-align: center;
+      font: bold 18px $noto-font;
+      padding: 12px 31px 19px;
+      width: 90%;
+      max-width: 255px;
+      @include breakpoint(tablet) {
+        background-image: url(../images/box-arrow.svg);
+        max-width: unset;
+        width: unset;
+        padding: 25px 50px 0 16px;
+        height: 84px;
+      }
+      @include breakpoint(pc) {
+        background-size: cover;
+        font-size: 24px;
+        padding: 25px 33px 0 16px;
+        height: 100px;
+        width: 318px;
+      }
+      span{
+        font: bold 32px $roboto-font;
+        @include breakpoint(pc){
+          font-size: 48px;
+        }
+      }
+    }
+    &__note {
+      order: 3;
+      font: 12px $noto-font;
+      @include breakpoint (tablet){
+        width: 160px;
+      }
+      @include breakpoint (pc){
+        width: unset;
+      }
+    }
+  }
+}

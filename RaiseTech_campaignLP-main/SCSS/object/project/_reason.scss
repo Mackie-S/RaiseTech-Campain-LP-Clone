@@ -1,0 +1,123 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.p-reason {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 60px 20px;
+  @include breakpoint(tablet) {
+    gap: 40px;
+    padding-top: 100px;
+    padding-bottom: 77px;
+  }
+  @include breakpoint(pc) {
+    gap: 60px;
+  }
+  .c-triangle:nth-of-type(1) { //右上の逆三角形
+    top: 131px;
+    right: 13%;
+    @include breakpoint(tablet) {
+      top: 35px;
+      right: 12%;
+    }
+    @include breakpoint(pc) {
+      right: 10%;
+    }
+    @include breakpoint(wide) {
+      top: 228px;
+      right: 13%;
+    }
+  }
+  .c-triangle:nth-of-type(2) { //左下の逆三角形
+    bottom: 990px;
+    left: 4%;
+    @include breakpoint(tablet) {
+      bottom: 619px;
+      left: 2%;
+    }
+    @include breakpoint(pc) {
+      bottom: 433px;
+    }
+    @include breakpoint(wide) {
+      bottom: 585px;
+    }
+  }
+  &__background01 { //左上のシルバーの背景
+    font-size: 0;
+    width: 125px;
+    height: 680px;
+    background-image: url(../images/background-pattern_silver_left.svg);
+    position: absolute;
+    top: 212px;
+    left: 0;
+    @include breakpoint(tablet){
+      width: 225px;
+    }
+    @include breakpoint(pc){
+      width: 450px;
+      left: 5%;
+      top: 402px;
+    }
+    @include breakpoint(wide){
+      left: 16%;
+    }
+  }
+  &__background02 {
+    //右下のシルバーの背景
+    font-size: 0;
+    width: 125px;
+    height: 680px;
+    background-image: url(../images/background-pattern_silver_right.svg);
+    position: absolute;
+    bottom: 95px;
+    right: 0;
+    @include breakpoint(tablet){
+      width: 225px;
+    }
+    @include breakpoint(pc){
+      width: 450px;
+      bottom: 240px;
+      right: 5%;
+    }
+    @include breakpoint(wide){
+      right: 17%;
+    }
+  }
+  &__title {
+    font: bold 24px $noto-font;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-top: 75px;
+    margin-top: -75px;
+    @include breakpoint(tablet) {
+      font-size: 32px;
+      padding-top: 120px;
+      margin-top: -120px;
+    }
+    @include breakpoint(pc) {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    span {
+      font: bold 24px $noto-font;
+      color: $accent-color;
+      @include breakpoint(tablet) {
+        font-size: 32px;
+      }
+      @include breakpoint(pc) {
+        font-size: 48px;
+      }
+      &:nth-of-type(1) {
+        //数字の5の部分
+        font: bold 38px $roboto-font;
+        @include breakpoint(tablet) {
+          font-size: 48px;
+        }
+        @include breakpoint(pc) {
+          font-size: 60px;
+        }
+      }
+    }
+  }
+}

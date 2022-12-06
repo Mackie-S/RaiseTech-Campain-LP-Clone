@@ -1,0 +1,14 @@
+// base
+@use "foundation/_reset";
+@use "foundation/_base";
+// layout
+@use "layout/*";
+
+// component
+@use "object/component/*";
+
+// project
+@use "object/project/*";
+
+// utillity
+@use "object/utility/*";

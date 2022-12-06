@@ -1,0 +1,54 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+//PP = Privacy Policyの頭文字
+.p-PP {
+  &__title {
+    font: bold 24px/1.5 $noto-font;
+      text-align: center;
+      margin-bottom: 40px;
+    @include breakpoint(tablet){
+      font-size: 32px;
+      margin-bottom: 50px;
+    }
+    @include breakpoint(pc){
+      font-size: 48px;
+      margin-bottom: 60px;
+    }
+  }
+  &__sub-title {
+    font: bold 18px/1.5 $noto-font;
+    margin-bottom: 20px;
+    @include breakpoint(tablet) {
+      font-size: 22px;
+    }
+    @include breakpoint(pc) {
+      font-size: 24px;
+    }
+  }
+  &__paragraph{
+    font: 16px/1.8 $noto-font;
+    margin-bottom: 40px;
+  }
+  &__list{
+    margin-bottom: 40px;
+  }
+  li{
+    font: 16px/1.8 $noto-font;
+    position: relative;
+    padding-left: 16px;
+    &::before{ //list-itemの前のドット
+      content: "";
+      width: 3px;
+      height: 3px;
+      display: inline-block;
+      border-radius: 100%;
+      background: #121212;
+      position: absolute;
+      top: 14px;
+      left: 5px;
+    }
+  }
+  &__address{
+    font: bold 16px/1.8 $noto-font;
+  }
+}

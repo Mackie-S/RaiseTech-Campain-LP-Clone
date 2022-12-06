@@ -1,0 +1,93 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.p-card{ //p-reason内にある5つの理由のレイアウト
+  display: flex;
+  flex-direction: column;
+  border: solid 3px $accent-color;
+  background-color: white;
+  padding: 30px 20px 40px;
+  align-items: center;
+  gap: 20px;
+  @include breakpoint(tablet){
+    flex-direction: row;
+    align-items: unset;
+    max-width: 630px;
+  }
+  @include breakpoint(pc){
+    max-width: 930px;
+  }
+  @include breakpoint(wide){
+    padding: 60px 70px 70px;
+  }
+  &:nth-of-type(odd) {
+    align-self: flex-start;
+    @include breakpoint(tablet) {
+      margin: 0 20% 0 10%;
+    }
+    @include breakpoint(pc) {
+      margin: 0 20% 0 10%;
+    }
+    @include breakpoint(wide) {
+      margin: 0 30% 0 20%;
+    }
+  }
+  &:nth-of-type(even) {
+    align-self: flex-end;
+    @include breakpoint(tablet) {
+      margin: 0 10% 0 20%;
+    }
+    @include breakpoint(pc) {
+      margin: 0 10% 0 20%;
+    }
+    @include breakpoint(wide) {
+      margin: 0 20% 0 30%;
+    }
+  }
+  img{
+    max-width: 63%;
+    @include breakpoint(tablet){
+      max-width: 100%;
+      min-width: 26%;//minを入れないとfirefoxで画像が小さかったりばらつきが出ていた
+    }
+  }
+  span{
+    font: bold 30px $roboto-font;
+    color: $accent-color;
+    position: relative;
+    margin-top: 10px;
+    @include breakpoint(tablet){
+      font-size: 36px;
+    }
+    @include breakpoint(pc){
+      margin-top: 3%;
+      font-size: 54px;
+    }
+    &::before{
+      content: "";
+      position: absolute;
+      left:50%;
+      top:40px;
+      transform: translateX(-50%);
+      display: inline-block;
+      width: 85%;
+      height: 3px;
+      background-color: $accent-color;
+      @include breakpoint (tablet){
+        top:50px;
+      }
+      @include breakpoint (pc){
+        top:70px;
+      }
+    }
+  }
+  &__desc{
+    font: bold 18px/1.8 $noto-font;
+    @include breakpoint(tablet){
+      margin: auto;
+      font-size: 16px;
+    }
+    @include breakpoint(pc){
+      font-size: 20px;
+    }
+  }
+}

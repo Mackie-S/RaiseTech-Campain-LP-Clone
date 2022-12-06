@@ -1,0 +1,9 @@
+//モーダルの余白に共通
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.c-container{
+  padding: 40px 20px;
+  @include breakpoint(tablet){
+    padding: 60px 40px;
+  }
+}

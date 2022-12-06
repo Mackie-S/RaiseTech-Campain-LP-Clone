@@ -1,0 +1,63 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.p-footer {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+  @include breakpoint(tablet){
+    max-width: 700px;
+    flex-direction: row;
+    padding: 54px 0;
+    margin: auto;
+    width: 95%;
+  }
+  @include breakpoint(pc){
+    max-width: 1060px;
+    width: 90%;
+  }
+  &__left-side{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include breakpoint(tablet){
+      flex-direction: row;
+      gap: 38px;
+    }
+  }
+  &__title{
+    width: 196px;
+    height: 41px;
+    a{
+      font-size: 0;
+      display: block;
+      height: 100%;
+    }
+  }
+  &__menu{
+    @include breakpoint(tablet){
+      align-self: flex-end;
+    }
+    li{
+      color: white;
+      transition: all 0.2s;
+      &:hover{
+        color: $accent-color;
+      }
+      a{
+        font: 16px $noto-font;
+        cursor: pointer;
+      }
+    }
+  }
+  &__copy{
+    color: white;
+    font: 20px $noto-font;
+    @include breakpoint (tablet){
+      display: flex;
+      align-self: end;
+    }
+  }
+}

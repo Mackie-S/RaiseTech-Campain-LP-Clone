@@ -1,0 +1,173 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.c-button {
+  display: block;
+  text-align: center;
+  color: white;
+  font-family: $noto-font;
+  background: linear-gradient(270deg, #0775C6 0%,#1895CF 25%, #FFBB31 51% ,#FFA800 100%);
+  background-size: 400% auto;
+  background-position: 1% 50%;
+  &--rectangle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 60px;
+    font: bold 18px $noto-font;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.11);
+    transition: box-shadow 0.3s, margin-top 0.3s, background-position 0.2s;
+    @include breakpoint(tablet) {
+      font-size: 22px;
+    }
+    @include breakpoint(pc) {
+      width: 530px;
+      height: 90px;
+      font-size: 28px;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.11);
+    }
+    &::before {
+      //pcアイコン
+      content: "";
+      background: url(../images/icon_pc.svg) no-repeat center center / contain;
+      width: 19px;
+      height: 17px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 10%;
+      @include breakpoint(tablet) {
+        width: 29px;
+        height: 26px;
+        left: 5%;
+      }
+      @include breakpoint(pc) {
+        left: 76px;
+      }
+    }
+    &::after {
+      //白の右矢印アイコン
+      content: "";
+      background: url(../images/icon_arrow_right.svg) no-repeat center center /
+        contain;
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10%;
+      @include breakpoint(tablet) {
+        width: 21px;
+        height: 21px;
+        right: 5%;
+      }
+      @include breakpoint(pc) {
+        right: 74px;
+      }
+    }
+    &:hover {
+      box-shadow: unset;
+      margin-top: 5px;
+      background-position: -34%;;
+      @include breakpoint(tablet) {
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+    }
+    &--form{ //WordPressで実装する無料説明会応募フォームのボタン
+      color: white;
+      background: linear-gradient(270deg, #0775C6 0%,#1895CF 25%, #FFBB31 51% ,#FFA800 100%);
+      background-size: 400% auto;
+      background-position: 1% 50%;
+      border-radius: 10px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.11);
+      transition: box-shadow 0.3s, margin-top 0.3s, background-position 0.2s;
+      border: none!important;
+      @include breakpoint(pc) {
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.11);
+      }
+      &:hover {
+        box-shadow: unset;
+        margin-top: 5px;
+        background-position: -34%;;
+        @include breakpoint(tablet) {
+          margin-top: 10px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+%PE-base {
+  //Pseudo-Elementの略
+  content: "";
+  position: fixed;
+  z-index: -1;
+  width: 4px;
+  height: 23px;
+  top: 31px;
+  right: 36.5px;
+  border-radius: 10px;
+  background-color: white;
+  @include breakpoint(tablet) {
+    width: 8px;
+    height: 33px;
+    top: 54px;
+    right: 64px;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.c-button--close {
+  //modal出現時のバツボタン
+  font-size: 0;
+  display: none;
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  top: 22px;
+  right: 19px;
+  background-color: $accent-color;
+  border-radius: 50%;
+  animation: fadeIn 0.3s;
+  transition: all 0.3s;
+  @include breakpoint(tablet) {
+    width: 72px;
+    height: 72px;
+    top: 33px;
+    right: 33px;
+  }
+  &.is-open {
+    display: block;
+  }
+  &:hover {
+    background-color: white;
+    &::before {
+      @extend %PE-base;
+      background-color: $accent-color;
+      transform: rotate(45deg);
+    }
+    &::after {
+      @extend %PE-base;
+      background-color: $accent-color;
+      transform: rotate(-45deg);
+    }
+  }
+  &::before {
+    @extend %PE-base;
+    transform: rotate(45deg);
+    transition: all 0.3s;
+  }
+  &::after {
+    @extend %PE-base;
+    transform: rotate(-45deg);
+    transition: all 0.3s;
+  }
+}

@@ -1,0 +1,132 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.p-self-study {
+  background-image: url(../images/background-pattern_silver.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto 375px;
+  padding: 76px 0 50px;
+  @include breakpoint(tablet){
+    margin-bottom: 200px;
+  }
+  @include breakpoint(wide) {
+    width: unset;
+    max-width: 1062px;
+    padding: 85px 128px;
+  }
+  &__title {
+    font: bold 18px/1.5 $noto-font;
+    margin-bottom: 40px;
+    @include breakpoint(tablet){
+      font-size: 28px;
+    }
+    @include breakpoint(pc){
+      font-size: 32px;
+      margin-bottom: 60px;
+    }
+    span {
+      text-decoration: underline;
+      text-underline-offset: 8.5px;
+    }
+  }
+  h4{
+    font: 14px/2 $noto-font;
+    margin-bottom: 30px;
+    @include breakpoint(tablet){
+      font-size: 20px;
+    }
+    @include breakpoint(pc){
+      font-size: 24px;
+    }
+  }
+  &__figures{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 88%;
+    margin: auto;
+    @include breakpoint(pc){
+      width: unset;
+      gap: 40px;
+    }
+    &__90{
+      background-color: #C3C3C3;
+      display: flex;
+      flex-direction: column;
+      padding:10px 18px 17px;
+      width: 50%;
+      @include breakpoint(pc){
+        padding:24px 65px 30px;
+        width: 380px;
+      }
+      figcaption{
+        font: bold 16px $roboto-font;
+        margin-bottom: 7px;
+        @include breakpoint(tablet){
+          font-size: 32px;
+        }
+        @include breakpoint(pc){
+          font-size: 48px;
+        }
+        span{
+          font: bold 13px $roboto-font;
+          @include breakpoint(tablet){
+            font-size: 24px;
+          }
+          @include breakpoint(pc){
+            font-size: 38px;
+          }
+        }
+      }
+      img{
+        max-width: 100%;
+        margin: auto;
+      }
+    }
+    &__10{
+      background-color: $accent-color;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding:10px 0 22px;
+      width: 50%;
+      @include breakpoint(pc){
+        width: 380px;
+        padding:24px 0 60px;
+      }
+      figcaption{
+        color: white;
+        font: bold 16px $roboto-font;
+        margin-bottom: 15px;
+        @include breakpoint(tablet){
+          font-size: 32px;
+        }
+        @include breakpoint(pc){
+          margin-bottom: 37px;
+          font-size: 48px;
+        }
+        span{
+          font:bold 13px $roboto-font;
+          @include breakpoint(tablet){
+            font-size: 24px;
+          }
+          @include breakpoint(pc){
+            font-size: 38px;
+          }
+        }
+      }
+      img{
+        max-width: 33px;
+        margin: auto;
+        width: 14%;
+        @include breakpoint(tablet){
+          max-width: 100%;
+          width: unset;
+        }
+      }
+    }
+  }
+}

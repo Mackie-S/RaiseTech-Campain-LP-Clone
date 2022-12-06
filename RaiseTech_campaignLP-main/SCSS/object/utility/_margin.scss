@@ -1,0 +1,15 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.u-margin--b{
+  &-40{
+    margin-bottom: 40px;
+  }
+  &-30{
+    margin-bottom: 30px;
+  }
+  &-20-over-tablet{
+    @include breakpoint(tablet){
+      margin-bottom: 20px;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@use "../foundation/mixin" as *;
+@use "../foundation/variable" as *;
+.l-footer{
+  background-color: #141D34;
+  height: auto;
+  @include breakpoint(tablet){
+    height: 150px;
+  }
+}

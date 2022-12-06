@@ -1,0 +1,23 @@
+//モバイルファースト記述にするためmax→minに変更
+@mixin breakpoint( $point ) {
+  @if $point == tablet {
+    @media ( min-width: 600px ) {
+      @content ;
+    }
+  }
+  @if $point == tab-pc { //p-interview__videos iframeの幅を調整するためだけのやむなしbreakpoint
+    @media ( min-width: 700px ) {
+      @content ;
+    }
+  }
+  @if $point == pc {
+    @media ( min-width: 1025px ) {
+      @content ;
+    }
+  }
+  @if $point == wide {
+    @media ( min-width: 1300px ) {
+      @content ;
+    }
+  }
+}

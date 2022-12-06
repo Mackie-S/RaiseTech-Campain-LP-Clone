@@ -1,0 +1,83 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.p-apply{
+  width: 100%;
+  height: 220px;
+  padding-top: 42px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  @include breakpoint(tablet){
+    height: 400px;
+    padding-top: 130px;
+  }
+  &__appeal{
+    color: white;
+    font:bold 18px $noto-font;
+    position: relative;
+    @include breakpoint(tablet){
+      font:bold 24px $noto-font;
+    }
+    &::before{
+      content: "";
+      background-color: white;
+      width: 2px;
+      height: 20px;
+      border-radius: 10px;
+      transform: rotate(-40deg);
+      position: absolute;
+      top: 22px;
+      left: -15px;
+      @include breakpoint(tablet){
+        height: 30px;
+        transform: rotate(-30deg);
+        top: 13px;
+        left: -20px;
+      }
+    }
+    &::after{
+      content: "";
+      background-color: white;
+      width: 2px;
+      height: 20px;
+      border-radius: 10px;
+      transform: rotate(40deg);
+      position: absolute;
+      top: 20px;
+      right: -15px;
+      @include breakpoint(tablet){
+        height: 30px;
+        transform: rotate(30deg);
+        top: 13px;
+        right: -20px;
+      }
+    }
+    span{
+      font:bold 30px $noto-font;
+      @include breakpoint(tablet){
+        font:bold 32px $noto-font;
+      }
+    }
+  }
+  .c-button--rectangle{ //このパートでの長さとアイコンの調整
+    top: 95px;
+    @include breakpoint(tablet){
+      top: 200px;
+      max-width: 600px;
+      width: 90%;
+    }
+    &::before{
+      @include breakpoint(tablet){
+        left: 111px;
+      }
+    }
+    &::after{
+      @include breakpoint(tablet){
+        right: 20%;
+      }
+      @include breakpoint(pc){
+        right: 74px;
+      }
+    }
+  }
+}

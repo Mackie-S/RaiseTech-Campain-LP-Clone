@@ -1,0 +1,7 @@
+@use "../../foundation/mixin" as *;
+@use "../../foundation/variable" as *;
+.c-fade-up{
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.9s;
+}
